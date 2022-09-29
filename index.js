@@ -30,6 +30,8 @@ const {
 } = require("./Handlers/eventHandler");
 
 client.events = new Collection();
+client.commands = new Collection();
+
 loadEvents(client);
 
 client.login(process.env.TOKEN);
