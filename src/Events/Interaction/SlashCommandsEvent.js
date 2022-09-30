@@ -24,6 +24,19 @@ module.exports = {
             });
         }
 
-        command.execute(interaction, client);
+        const SubCommand = interaction.options.getSubcommand(false);
+        if (SubCommand) {
+            const SubCommandFile = client.subCommands.get(`${interaction.commandName}.${SubCommand}`);
+
+            if (!SubCommandFile) {
+                return interaction.send({
+                    content: "This sub command is only available to developer.",
+                    ephemeral: true
+                });
+            }
+            SubCommandFile.execute(interaction, client);
+        } else {
+            command.execute(interaction, client);
+        }
     }
 }

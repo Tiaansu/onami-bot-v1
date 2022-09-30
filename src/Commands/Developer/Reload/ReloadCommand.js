@@ -1,9 +1,4 @@
-const {
-    ChatInputCommandInteraction,
-    SlashCommandBuilder,
-    PermissionFlagsBits,
-    Client
-} = require("discord.js");
+const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
 
 module.exports = {
     developer: true,
@@ -17,14 +12,4 @@ module.exports = {
         .addSubcommand((options) => options
             .setName("commands")
             .setDescription("Reload your commands.")),
-    /**
-     * 
-     * @param {ChatInputCommandInteraction} interaction 
-     * @param {Client} client 
-     */
-    execute(interaction, client) {
-        const subCommand = interaction.options.getSubcommand();
-
-        // Continue tomorrow.
-    }
 }
