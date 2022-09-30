@@ -2,7 +2,7 @@
   "name": "onami-game-monitor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/Index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "ascii-table": "^0.0.9",
+    "chalk": "^4.1.2",
+    "colorette": "^2.0.19",
     "discord.js": "^14.5.0",
     "dotenv": "^16.0.2",
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.2"
   }
 }

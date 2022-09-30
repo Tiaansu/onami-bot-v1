@@ -1,0 +1,117 @@
+{
+    "development" : {
+        "prefix" : "o-",
+        "live" : "yes",
+        "clientId" : "14d8020bbbc44a51860938b557fc62ef",
+        "clientSecret" : "f05fea9255c947a5813f38815ab12b24",
+        "MONGODB_URI" : "mongodb+srv://GameMonitor:Rjdai3joTKBP2Ybk@game-monitor.gqo07k6.mongodb.net/?retryWrites=true&w=majority",
+        "TEST_GUILD_ID" : "866208786309054474",
+        "Beta" : {
+            "status": "false",
+            "token" : "OTg3NTk4OTA1NzExNjczMzc0.G1ZbNu.mb_ljOoHttbnBxrGr2-jMz5uYLjps9PffPyvAQ"
+        },
+        "SupportServer": "https://github.com/Tiaansu/",
+        "OwnerId": "734302186644701205",
+        "reportChannel": "993090449659138058",
+        "url" : "https://www.youtube.com/watch?v=SKUN0CXo1_M",
+        "InviteLink": "https://discord.com/api/oauth2/authorize?client_id=980351326984740904&permissions=8&scope=bot%20applications.commands"
+    },
+    "emoji": {
+        "static" : {
+            "Coin": "<:coin:994874871278473246>",
+            "Reply": "<:reply:995258284258889768>",
+
+            "PurplePause": "<:8061purplepauseicon:983639785103032429>",
+            "PurpleMember": "<:8263blurplemembers:983639786789167134>",
+            "PurplePlay": "<:8929purpleplayicon:983639788701745182>",
+
+            "Disactive": "<:disactive:988357406738223114>",
+            "StaffActive" : "<:staff_active:988357844531310642>",
+            "StaffInactive" : "<:staff_inactive:988357924357283900>",
+            
+            "CheckMark": "<:checkmark:983639826312081408>",
+            "XMark": "<:xmark:983639829902397460>",
+
+            "BlurpleLink": "<:blurple_link:986924758669094932>",
+            "BlurpleBeta": "<:blurple_beta:986924705187512350>",
+            "BlurpleBoostLevel6": "<:blurple_boost_level_6:986924707557290005>",
+            "BlurpleGift": "<:blurple_gift:986924717250342932>",
+            "BlurpleLine": "<:blurple_line:986924719045500958>",
+            "BlurpleLock": "<:blurple_lock:986924747654856774>",
+            "BlurpleNo": "<:blurple_no:986924750058192986>",
+            "BlurpleOwner": "<:blurple_owner:986924721302044712>",
+            "BlurplePartner": "<:blurple_partner:986924723277549588>",
+            "BlurpleRocket": "<:blurple_rocket:986924725253062676>",
+            "BlurpleRules": "<:blurple_rules:986924727874498590>",
+            "BlurpleSearch": "<:blurple_search:986924731032821800>",
+            "BlurpleServer": "<:blurple_server1:986924733230628884>",
+            "BlurpleShield": "<:blurple_shield:986924735814320138>",
+            "BlurpleShield1": "<:blurple_shield:986924752029491230>",
+            "BlurpleSlashCommands": "<:blurple_slashcommands:986924754663510027>",
+            "BlurpleStaff": "<:blurple_staff:986924738666459146>",
+            "BlurpleStar": "<:blurple_star:986924740881031178>",
+            "BlurpleTextChannel": "<:blurple_textchannel:986924743112405024>",
+            "BlurpleVerifiedBotDeveloper": "<:blurple_verified_bot_developer:986924745628987392>",
+            "BlurpleYes": "<:blurple_yes:986924756752269323>",
+            "BlurpleBan": "<:blurple_ban:986927288304148480>",
+            "BlurpleOutage": "<:BlurpleOutage:987645022130303047>"
+        },
+        "animated" : {
+            "DiscordMusic": "<a:DiscordMusic:983636419211821066>",
+            "FurryMusic": "<a:FurryMusic:983636437696143380>",
+            "MusicNotes": "<a:HP_aMusicalNotes:983636482357084170>",
+            "Music1": "<a:Music1:983636486840799272>",
+
+            "nami1": "<a:nami1:987646796819988480>",
+            "nami": "<a:nami:987646628322226237>",
+
+            "OnamiMoney": "<a:NamiMoney:983636492444389436>",
+            "OnamiWheeze": "<a:NamiWheeze:983636497523699732>",
+            "OnamiWink": "<a:NamiWink:986226214383517716>",
+            "OnamiWink1": "<a:NamiWink1:986226202031304724>",
+
+            "Music": "<a:music:983636484793987112>",
+            "MusicNote1": "<a:musicnotes:983636488942137344>",
+            "PartyMusic": "<a:partyMusic:983636500300320818>",
+            "wumpusmusic": "<a:wumpusmusic:983636503546720327>",
+            
+            "alert": "<a:alert:983639820528140348>",
+            "banned": "<a:banned:983639822637858847>",
+            "loading": "<a:carregand_:983639824219140137>",
+            "dev": "<a:dev:983639828182740992>",
+
+            "ArrowLeft": "<a:ArrowLeft1:986190490087067658>",
+            "ArrowRight": "<a:ArrowRight1:986190498475692032>",
+
+            "BlurpleBoost": "<a:blurple_boosts:986924713618051082>"
+        },
+        "external" : {
+            "UtilityDisc" : "https://images-ext-1.discordapp.net/external/HOesVeWmlHy14NFGeIf58TUIAOePKIjC2ZfMUcBB90A/%3Fv%3D1/https/cdn.discordapp.com/emojis/855561346087387136.gif",
+            "Error": "https://images-ext-2.discordapp.net/external/62J2SiHTggRlGa6fXltfhqS5Aa6Bpqhdn_QvvIVQsI4/%3Fv%3D1/https/cdn.discordapp.com/emojis/695631398718930997.png"
+        }
+    },
+    "color": {
+        "orange": {
+            "Fulvous" : "0xE37300",
+            "Pantone" : "0xFF5A00",
+            "AmericanYellow" : "0xEEB400",
+            "MiddleYellowRed" : "0xF2AE75",
+            "VividGamboge" : "0xFF9A00",
+            "VividTangelo" : "0xEB7734",
+            "CodmiumOrange" : "0xEB8934"
+        },
+        "red" : {
+            "CarminePink" : "0xED4242",
+            "DeepCarminePink" : "0xFC3232"
+        },
+        "green" : {
+            "MiddleGreen" : "0x439C5C"
+        },
+        "discord": {
+            "Eucalyptus": "0x50DCAB",
+            "Calamansi": "0xFFF5AD",
+            "Blueberry": "0x3E84F4",
+            "JellyBean": "0xDC5C50"
+        }
+    }
+}
