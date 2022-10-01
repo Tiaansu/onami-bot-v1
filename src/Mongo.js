@@ -1,10 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 require('dotenv').config();
-const client = require('./Bot').client;
-const Logger = require("./Functions/Logger");
+const Logger = require('./Functions/LoggerFunction');
 
 module.exports = async () => {
-    await mongoose.connect(client.development.MONGODB_URI, {
+    await mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

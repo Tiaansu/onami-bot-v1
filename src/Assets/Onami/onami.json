@@ -4,12 +4,7 @@
         "live" : "yes",
         "clientId" : "14d8020bbbc44a51860938b557fc62ef",
         "clientSecret" : "f05fea9255c947a5813f38815ab12b24",
-        "MONGODB_URI" : "mongodb+srv://onami-bot:vMJeSGlhKgPXQDeB@onami-bot.g8l8dsh.mongodb.net/?retryWrites=true&w=majority",
         "TEST_GUILD_ID" : "866208786309054474",
-        "Beta" : {
-            "status": "false",
-            "token" : "OTg3NTk4OTA1NzExNjczMzc0.G1ZbNu.mb_ljOoHttbnBxrGr2-jMz5uYLjps9PffPyvAQ"
-        },
         "SupportServer": "https://github.com/Tiaansu/",
         "OwnerId": "734302186644701205",
         "reportChannel": "993090449659138058",

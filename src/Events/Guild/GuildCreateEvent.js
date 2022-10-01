@@ -1,7 +1,16 @@
-const { EmbedBuilder, Client, Guild, ChannelType, PermissionFlagsBits } = require("discord.js");
-const moment = require("moment");
-const { addCommas } = require("../../Functions/FormatNum");
-const Logger = require("../../Functions/Logger");
+const {
+    EmbedBuilder,
+    Client,
+    Guild,
+    ChannelType,
+    PermissionFlagsBits
+} = require('discord.js');
+const { 
+    addCommas 
+} = require('../../Functions/FormatNumberFunction');
+
+const moment = require('moment');
+const Logger = require('../../Functions/LoggerFunction');
 
 module.exports = {
     name: "guildCreate",
@@ -20,7 +29,8 @@ module.exports = {
             .setAuthor({ name: `${client.user.username}`, iconURL: `https://i.imgur.com/Yj7ldQ8.gif` })
             .setColor(client.color.orange.Pantone)
             .setThumbnail('https://i.imgur.com/Yj7ldQ8.gif')
-            .setFooter({ text: `${moment().format("dddd, MMMM DD YYYY hh:mm:ss A")}` })
+            .setFooter({ text: `${client.user.username}` })
+            .setTimestamp()
             .setDescription(`Thank you for inviting **${client.user.username}**!\n*Currently we are on ${addCommas(totalGuilds)} server(s) with the total of ${addCommas(totalMembers)} member(s).*`)
             .addFields(
                 {

@@ -1,4 +1,4 @@
-const { ShardingManager } = require("discord.js");
+const { ShardingManager } = require('discord.js');
 require('dotenv').config();
 
 const manager = new ShardingManager('./src/Bot.js', {

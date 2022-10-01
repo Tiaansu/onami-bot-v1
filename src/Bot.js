@@ -1,17 +1,74 @@
-const { Client, GatewayIntentBits, Partials, Collection } = require('discord.js');
+const {
+    Client,
+    GatewayIntentBits,
+    Partials,
+    Collection
+} = require('discord.js');
 
 require('dotenv').config();
 
-const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
+const {
+    Guilds,
+    GuildMembers,
+    GuildBans,
+    GuildEmojisAndStickers,
+    GuildIntegrations,
+    GuildWebhooks,
+    GuildInvites,
+    GuildVoiceStates,
+    GuildPresences,
+    GuildMessages,
+    GuildMessageReactions,
+    GuildMessageTyping,
+    DirectMessages,
+    DirectMessageReactions,
+    DirectMessageTyping,
+    MessageContent,
+    GuildScheduledEvents
+} = GatewayIntentBits;
 
-const { User, Message, GuildMember, ThreadMember } = Partials;
+const {
+    User,
+    Channel,
+    GuildMember,
+    Message,
+    Reaction,
+    GuildScheduledEvent,
+    ThreadMember,
+} = Partials;
 
 const client = new Client({
-    intents: [Guilds, GuildMembers, GuildMessages],
-    partials: [User, Message, GuildMember, ThreadMember]
+    intents: [
+        Guilds,
+        GuildMembers,
+        GuildBans,
+        GuildEmojisAndStickers,
+        GuildIntegrations,
+        GuildWebhooks,
+        GuildInvites,
+        GuildVoiceStates,
+        GuildPresences,
+        GuildMessages,
+        GuildMessageReactions,
+        GuildMessageTyping,
+        DirectMessages,
+        DirectMessageReactions,
+        DirectMessageTyping,
+        MessageContent,
+        GuildScheduledEvents
+    ],
+    partials: [
+        User,
+        Channel,
+        GuildMember,
+        Message,
+        Reaction,
+        GuildScheduledEvent,
+        ThreadMember,
+    ]
 });
 
-const config = require("./Assets/Onami/onami.json");
+const config = require('./Assets/Onami/onami.json');
 client.emotes = config.emoji;
 client.color = config.color;
 client.development = config.development;
@@ -27,8 +84,8 @@ require('./Mongo')();
 
 loadEvents(client);
 
-if(client.development.Beta.status === 'true') {
-    client.login(Client.development.Beta.token);
+if(process.env.BETA_STATUS === 'true') {
+    client.login(process.env.BETA_TOKEN);
 } else {
     client.login(process.env.TOKEN);
 }

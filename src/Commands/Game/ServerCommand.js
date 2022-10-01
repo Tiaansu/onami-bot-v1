@@ -1,9 +1,12 @@
-const { ChatInputCommandInteraction, SlashCommandBuilder } = require("discord.js");
+const {
+    ChatInputCommandInteraction,
+    SlashCommandBuilder
+} = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("server")
-        .setDescription("Choose type."),
+        .setName("test")
+        .setDescription("The bot will respond with pong."),
     /**
      * 
      * @param {ChatInputCommandInteraction} interaction 

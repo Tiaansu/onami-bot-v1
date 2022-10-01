@@ -1,6 +1,6 @@
 {
   "name": "onami-game-monitor",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "",
   "main": "./src/Index.js",
   "scripts": {
@@ -13,10 +13,12 @@
     "ascii-table": "^0.0.9",
     "chalk": "^4.1.2",
     "colorette": "^2.0.19",
+    "common-tags": "^1.8.2",
     "discord.js": "^14.5.0",
     "dotenv": "^16.0.2",
     "glob": "^8.0.3",
     "moment": "^2.29.4",
-    "mongoose": "^6.6.2"
+    "mongoose": "^6.6.2",
+    "ms": "^2.1.3"
   }
 }

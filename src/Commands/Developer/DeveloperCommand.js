@@ -1,7 +1,9 @@
-const { ChatInputCommandInteraction, Client, SlashCommandBuilder } = require("discord.js");
-const logger = require("../../Functions/Logger");
-
-const chalk = require("chalk");
+const {
+    ChatInputCommandInteraction,
+    Client,
+    SlashCommandBuilder
+} = require('discord.js');
+const logger = require('../../Functions/LoggerFunction');
 
 module.exports = {
     developer: true,

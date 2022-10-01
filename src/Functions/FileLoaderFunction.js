@@ -1,6 +1,10 @@
-const { glob } = require("glob");
+const {
+    glob
+} = require('glob');
 
-const { promisify } = require("util");
+const {
+    promisify
+} = require('util');
 
 const proGlob = promisify(glob);
 
