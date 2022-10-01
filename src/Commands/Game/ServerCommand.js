@@ -5,7 +5,7 @@ const {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("ping")
+        .setName("test")
         .setDescription("The bot will respond with pong."),
     /**
      * 

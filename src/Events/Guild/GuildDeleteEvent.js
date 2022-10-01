@@ -1,5 +1,8 @@
-const { Client, Guild } = require("discord.js");
-const Logger = require("../../Functions/Logger");
+const {
+    Client,
+    Guild
+} = require('discord.js');
+const Logger = require('../../Functions/LoggerFunction');
 
 module.exports = {
     name: "guildDelete",
