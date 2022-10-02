@@ -1,80 +1,85 @@
 const {
     ChatInputCommandInteraction,
+    Client,
     SlashCommandBuilder,
     EmbedBuilder,
-    ActionRowBuilder,
-    ButtonBuilder,
     PermissionFlagsBits,
-    Client,
-    userMention
-} = require('discord.js');
+    userMention,
+} = require('discord.js'); 
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('ban')
         .setDescription('Ban a member from the server')
         .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-        .addUserOption(option => option
-            .setName('member')
-            .setDescription('Choose member to ban from the server')
-            .setRequired(true))
-        .addStringOption(option => option
-            .setName('reason')
-            .setDescription('Reason of the ban')
-            .setRequired(false)),
-    
+        .addUserOption(option =>
+            option
+                .setName('member')
+                .setDescription('The member that you want to ban')
+                .setRequired(true)
+        )
+        .addStringOption(option =>
+            option
+                .setName('reason')
+                .setDescription('The reason of the ban')
+                .setRequired(false)    
+        ),
+
     /**
      * 
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client 
      */
     async execute(interaction, client) {
-        const targetUser = interaction.options.getUser('member');
-        
-        let BanReason = interaction.options.getString('reason');
-        const member = interaction.guild.members.cache.get(targetUser.id);
-
-        if (!member) {
+        const banUser = interaction.options.getUser('member');
+        const banMember = interaction.guild.members.cache.get(banUser.id);
+        if (!banMember) {
             return interaction.reply({
-                content: "The user specified doesn't exist in the server.",
+                content: 'The user specified doesn\'t exist on the server',
                 ephemeral: true
-            });
+            })
         }
 
-        if (!BanReason) {
-            BanReason = 'No reason provided.';
+        let banReason = interaction.options.getString('reason');
+        if (!banReason) {
+            banReason = 'No reason provided.';
         }
 
         try {
-            await interaction.guild.members.ban(member, {
-                reason: BanReason
+            await banMember.ban({
+                reason: banReason
             })
-        } catch (e) {
+
+            banMember.send({
+                embeds: [
+                    new EmbedBuilder()
+                        .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
+                        .setDescription(`You have been banned from a server.\nServer: ${interaction.guild.name} \nBanned by: ${userMention(interaction.user.id)}\nReason: ${banReason}`)
+                        .setColor('Red')
+                        .setTimestamp()
+                ]
+            })
+
+            interaction.reply({
+                embeds: [
+                    new EmbedBuilder()
+                        .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
+                        .setDescription(`Successfully banned a member.\nName: ${userMention(banUser.id)}\nReason: ${banReason}`)
+                        .setColor('Green')
+                        .setTimestamp()
+                ]
+            })
+        } catch (error) {
             return interaction.reply({
-                content: `Cannot ban the user ${user.tag}\n\`\`\`${e}\`\`\``,
+                embeds: [
+                    new EmbedBuilder()
+                        .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
+                        .setDescription(`Failed to banned ${userMention(banUser.id)}\nReason: \`${error}\``)
+                        .setColor('Red')
+                        .setTimestamp()
+                ],
                 ephemeral: true
-            });
+            })
         }
-
-        targetUser.send({
-            embeds: [
-                new EmbedBuilder()
-                    .setAuthor({ name: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: true })}` })
-                    .setColor(client.color.orange.Pantone)
-                    .setTimestamp()
-                    .setDescription(`You have been banned from **${interaction.guild.name}** for the following reasons:\n\n**Banned by:** ${userMention(interaction.user.id)}\n**Reason:** ${BanReason}`)
-            ]
-        })
-
-        interaction.reply({
-            embeds: [
-                new EmbedBuilder()
-                    .setAuthor({ name: `${client.user.username}`, iconURL: `${client.user.displayAvatarURL({ dynamic: true })}` })
-                    .setColor('Green')
-                    .setTimestamp()
-                    .setDescription(`Successfully banned ${userMention(targetUser.id)} from this server. Reason: ${BanReason}`)
-            ],
-            ephemeral: true
-        })
     }
 }

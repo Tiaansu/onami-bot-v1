@@ -29,7 +29,7 @@ module.exports = {
     async execute(interaction, client) {
         if (!ChatInputCommandInteraction) return;
 
-        if(interaction.isCommand()) {
+        if (interaction.isCommand()) {
 
             const command = client.commands.get(interaction.commandName);
             if (!command) {
