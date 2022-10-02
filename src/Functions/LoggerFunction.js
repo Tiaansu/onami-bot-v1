@@ -18,7 +18,7 @@ exports.log = (content, type = "log") => {
         case "debug": return console.log(`${timestamp} ${ColorDebug(type.toUpperCase())} ${content}`);
         case "cmd": return console.log(`${timestamp} ${ColorCMD(type.toUpperCase())} ${content}`);
         case "ready": return console.log(`${timestamp} ${ColorReady((type.toUpperCase()))} ${content}`);
-        default: throw new TypeError("Logger type must be eitheer log, warn, error, debug, cmd, and ready.");
+        default: throw new TypeError("Logger type must be either log, warn, error, debug, cmd, and ready.");
     }
 };
 

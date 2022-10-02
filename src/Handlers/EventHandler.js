@@ -20,7 +20,7 @@ async function loadEvents(client) {
 
         const execute = (...args) => event.execute(...args, client);
 
-        if(!EventNamesText.includes(event.name) || !event.name) {
+        if (!EventNamesText.includes(event.name) || !event.name) {
             const L = file.split("/");
             table.addRow(`${`${L[7] + '/' + L[8] + '/' + L[9]}`}`, "🟥");
             return;

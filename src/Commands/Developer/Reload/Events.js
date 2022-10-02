@@ -1,6 +1,7 @@
 const {
     ChatInputCommandInteraction,
-    Client
+    Client,
+    EmbedBuilder
 } = require('discord.js');
 const {
     loadEvents
@@ -18,7 +19,12 @@ module.exports = {
             client.removeListener(`${key}`, value, true);
             loadEvents(client);
             interaction.reply({
-                content: "Reloaded Events Worked",
+                embeds: [
+                    new EmbedBuilder()
+                        .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
+                        .setDescription('Successfully reloaded events.')
+                        .setColor(client.color.orange.Pantone)
+                ],
                 ephemeral: true
             })
         }
