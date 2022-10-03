@@ -60,7 +60,7 @@ module.exports = {
             time: timeout
         });
 
-        collector.content('collect', async (inter) => {
+        collector.on('collect', async (inter) => {
             if (inter.customId === 'paginator-button-left') {
                 page = page > 0 ? --page : Pages.length - 1;
             } else if (inter.customId === 'paginator-button-right') {

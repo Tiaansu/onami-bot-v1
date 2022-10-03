@@ -16,15 +16,9 @@ module.exports = {
      */
     async execute(interaction, client) {
         
-        let invite = await interaction.channel.createInvite({
-            maxAge: 60 * 60,
-            maxUses: 10,
-            reason: 'Test'
-        });
-
         
         interaction.reply({
-            content: `Testing Logger done. https://discord.gg/${invite.code}`,
+            content: `Testing done.`,
             ephemeral: true
         })
     }
