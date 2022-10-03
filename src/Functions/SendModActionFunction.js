@@ -5,10 +5,6 @@ const {
     userMention
 } = require('discord.js');
 
-const {
-    stripIndents
-} = require('common-tags');
-
 const ModLogsChannelSchema = require('../Schemas/ChannelSchema/ModLogsChannelSchema');
 
 /**
@@ -38,14 +34,6 @@ async function SendModAction(client, interaction, action) {
                 new EmbedBuilder()
                     .setAuthor({ name: client.user.username, iconURL: client.user.displayAvatarURL({ dynamic: true }) })
                     .setDescription(`${userMention(interaction.user.id)} took an action: ${action}`)
-                    .addFields(
-                        {
-                            name: '> Enabled by',
-                            value: stripIndents(`
-                                ㅤ•ㅤ${interaction.user}
-                            `)
-                        }
-                    )
                     .setColor('Green')
                     .setTimestamp()
             ]
