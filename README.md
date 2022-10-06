@@ -4,8 +4,6 @@
 
 <h3 align=center>A simple bot built with <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
 
-<a href="https://www.npmjs.com/package/discord.js"><img src="https://img.shields.io/npm/v/discord.js.svg?maxAge=3600" alt="npm version" /></a>
-
 ## Installation
 ```
 git clone https://github.com/Tiaansu/onami-bot.git
@@ -26,3 +24,10 @@ BETA_STATUS="false"
 BETA_TOKEN="YOUR_BETA_BOT_TOKEN"
 ```
 Visit the [Discord Developer Portal](https://discord.com/developers/applications) to create an app and use the client token you are given for the `TOKEN` option. To set up your database go to [MongoDB](https://cloud.mongodb.com/) and create an account and choose their free tier. 
+
+## License
+
+Released under the [MIT](https://opensource.org/licenses/MIT) license.
+
+## Credits
+* **Tiaansu** - [github](https://github.com/Tiaansu)
