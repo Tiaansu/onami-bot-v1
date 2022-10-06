@@ -2,14 +2,12 @@
     "development" : {
         "prefix" : "o-",
         "live" : "yes",
-        "clientId" : "14d8020bbbc44a51860938b557fc62ef",
-        "clientSecret" : "f05fea9255c947a5813f38815ab12b24",
         "TEST_GUILD_ID" : "866208786309054474",
         "SupportServer": "https://github.com/Tiaansu/",
-        "OwnerId": "734302186644701205",
-        "reportChannel": "993090449659138058",
+        "OwnerId": "OWNER_ID",
+        "reportChannel": "REPORT_CHANNEL",
         "url" : "https://www.youtube.com/watch?v=SKUN0CXo1_M",
-        "InviteLink": "https://discord.com/api/oauth2/authorize?client_id=980351326984740904&permissions=8&scope=bot%20applications.commands"
+        "InviteLink": "https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot%20applications.commands"
     },
     "emoji": {
         "static" : {

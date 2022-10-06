@@ -1,25 +1,30 @@
+const { stripIndents } = require('common-tags');
 const {
     ChatInputCommandInteraction,
     Client,
-    SlashCommandBuilder
+    SlashCommandBuilder,
+    EmbedBuilder
 } = require('discord.js');
+
+const Logger = require('../../Functions/LoggerFunction');
 
 module.exports = {
     developer: true,
     data: new SlashCommandBuilder()
         .setName("testcmd")
-        .setDescription("A command for the developer"),
+        .setDescription("A command for the developer")
+        .addUserOption(option =>
+            option
+                .setName('user')
+                .setDescription('user')
+                .setRequired(true)
+        ),
     /**
      * 
      * @param {ChatInputCommandInteraction} interaction 
      * @param {Client} client
      */
     async execute(interaction, client) {
-        
-        
-        interaction.reply({
-            content: `Testing done.`,
-            ephemeral: true
-        })
+        // Test Command
     }
 }

@@ -1,15 +1,16 @@
 const ActionLogSchema = require('../../Schemas/ChannelSchema/ModLogsChannelSchema');
 const Logger = require('../../Functions/LoggerFunction');
 const {
-    ConvertToHex
-} = require('../../Functions/ConvertToHexFunction');
-const {
     EmbedBuilder,
     Role,
     Client,
     inlineCode,
     PermissionFlagsBits
 } = require('discord.js');
+const {
+    PermissionsText
+} = require('../../Validations/PermissionValidation');
+const { stripIndents } = require('common-tags');
 
 module.exports = {
     name: 'roleUpdate',
@@ -23,52 +24,91 @@ module.exports = {
      */
     async execute(oldRole, newRole, client) {
 
+        if (oldRole.rawPosition !== newRole.rawPosition) {
+            return;
+        }
+
+        const Actionlog = await ActionLogSchema.findOne({ Guild: newRole.guild.id, Activated: true });
+        if (!Actionlog) return;
+
+        const Channel = client.channels.cache.get(Actionlog.Channel);
+
         const RoleEmbed = new EmbedBuilder()
             .setColor(client.color.discord.Blueberry)
             .setTitle(`Role "${oldRole.name}" updated`)
             .setFooter({ text: `Role ID: ${oldRole.id}` })
             .setTimestamp();
 
-        if (!oldRole.color !== newRole.color) {
+        try {
             RoleEmbed.addFields(
                 {
                     name: 'Before',
-                    value: `Color: ${oldRole.color === 0 ? '#000000' : ConvertToHex(oldRole.color)}`,
+                    value: stripIndents(`
+                        ${oldRole.name !== newRole.name ? `**Name:** ${oldRole.name}` : ''}
+                        ${oldRole.hexColor !== newRole.hexColor ? `**Color:** ${oldRole.hexColor}` : ''}
+                        ${oldRole.hoist !== newRole.hoist ? `**Separated:** ${oldRole.hoist ? 'True' : 'False'}` : ''}
+                        ${oldRole.mentionable !== newRole.mentionable ? `**Mentionable:** ${oldRole.mentionable ? 'True' : 'False'}` : ''}
+                    `),
                     inline: true
                 },
                 {
                     name: 'After',
-                    value: `Color: ${newRole.color === 0 ? '#000000' : ConvertToHex(newRole.color)}`,
+                    value: stripIndents(`
+                        ${oldRole.name !== newRole.name ? `**Name:** ${newRole.name}` : ''}
+                        ${oldRole.hexColor !== newRole.hexColor ? `**Color:** ${newRole.hexColor}` : ''}
+                        ${oldRole.hoist !== newRole.hoist ? `**Separated:** ${newRole.hoist ? 'True' : 'False'}` : ''}
+                        ${oldRole.mentionable !== newRole.mentionable ? `**Mentionable:** ${newRole.mentionable ? 'True' : 'False'}` : ''}
+                    `),
                     inline: true
                 }
-            )
+            );
+        } catch (error) {
+            Logger.error(error);
+        }
+
+        if (oldRole.permissions !== newRole.permissions) {
+            const newPerms = oldRole.permissions.missing(newRole.permissions, false);
+            const oldPerms = newRole.permissions.missing(oldRole.permissions, false);
+
+            let newPermArray = [];
+            let oldPermArray = [];
+
+            for (const perm of newPerms) {
+                if (!PermissionsText[perm]) {
+                    return;
+                }
+                newPermArray.push(PermissionsText[perm]);
+            }
+
+            for (const perm of oldPerms) {
+                if (!PermissionsText[perm]) {
+                    return;
+                }
+                oldPermArray.push(PermissionsText[perm]);
+            }
+
+            try {
+                RoleEmbed.addFields(
+                    {
+                        name: 'New permissions',
+                        value: stripIndents(`
+                            ${newPermArray.length === 0 ? '' : `**Added:** ${newPermArray.join(', ')}`}
+                            ${oldPermArray.length === 0 ? '' : `**Removed:** ${oldPermArray.join(', ')}`}
+                        `),
+                        inline: true
+                    }
+                );
+            } catch (error) {
+                Logger.error(error);
+            }
         }
         
-       // check the missing permissions in newRole
-        const removedPermissions = newRole.permissions.missing(oldRole.permissions)
-        // check the missing permissions in oldRole (meaning it just got added)
-        const addedPermissions = oldRole.permissions.missing(newRole.permissions)
-
-        console.log(removedPermissions);
-        console.log("");
-        console.log(addedPermissions);
-
-        
-
-        // console.log(permUpdated);
-
-        // let permsUpdated = [];
-
-        // for (const [key, element] of Object.entries(oldPerms)) {
-        //     if (newPerms[key] !== element) {
-        //         permsUpdated.push(key);
-        //     }
-        // }
-
-        // if (oldRole.permissions > newRole.permissions) {
-        //     console.log(`${newRole.name} has lost the ${permsUpdated.join(', ')} permissions`);
-        // } else if (oldRole.permissions < newRole.permissions) {
-        //     console.log(`${newRole.name} has been given the ${permsUpdated.join(', ')} permission`);
-        // }
+        try {
+            Channel.send({
+                embeds: [RoleEmbed]
+            })
+        } catch (error) {
+            Logger.error(error);
+        }
     }
 }

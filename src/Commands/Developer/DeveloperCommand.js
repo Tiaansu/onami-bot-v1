@@ -3,7 +3,6 @@ const {
     Client,
     SlashCommandBuilder
 } = require('discord.js');
-const logger = require('../../Functions/LoggerFunction');
 
 module.exports = {
     developer: true,
@@ -16,17 +15,6 @@ module.exports = {
      * @param {Client} client
      */
     async execute(interaction, client) {
-        
-        logger.log("Testing normal log", "log");
-        logger.log("Testing warn log", "warn");
-        logger.log("Testing error log", "error");
-        logger.log("Testing debug log", "debug");
-        logger.log("Testing cmd log", "cmd");
-        logger.log("Testing ready log", "ready");
-        
-        interaction.reply({
-            content: `Testing Logger done.`,
-            ephemeral: true
-        })
+        // You can delete this file
     }
 }
