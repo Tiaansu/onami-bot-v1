@@ -20,7 +20,7 @@ First, you need to rename `.env.example` file to `.env` and then fill-up the fie
 ```
 TOKEN="YOUR_BOT_TOKEN"
 MONGODB_URI="YOUR_MONGODB_LOGIN_CONN"
-BETA_STATUS="false"
+BETA_STATUS="BETA_STATUS_TRUE_and_FALSE"
 BETA_TOKEN="YOUR_BETA_BOT_TOKEN"
 ```
 Visit the [Discord Developer Portal](https://discord.com/developers/applications) to create an app and use the client token you are given for the `TOKEN` option. To set up your database go to [MongoDB](https://cloud.mongodb.com/) and create an account and choose their free tier. 
