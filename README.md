@@ -2,7 +2,7 @@
     Onami Bot
 </h1>
 
-<h3 align=center>A simple bot built with <a href=https://github.com/discordjs/discord.js>discord.js</a></h3>
+<h3 align=center>A simple bot built with <a href=https://github.com/discordjs/discord.js>discord.js v14</a></h3>
 
 ## Installation
 ```
