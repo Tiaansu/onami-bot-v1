@@ -6,7 +6,7 @@ const {
 } = require('discord.js');
 
 module.exports = {
-    developer: true,
+    developer: true, // Remove this line if you gon' use it to other category.
     data: new SlashCommandBuilder()
         .setName("template")
         .setDescription("This is just a template.")
@@ -17,6 +17,6 @@ module.exports = {
      * @param {Client} client
      */
     execute(interaction, client) {
-        
+        // Template
     }
 }
